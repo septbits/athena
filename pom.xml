@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.septbits.athena</groupId>
+    <artifactId>athena-parent</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>Athena Maven Parent</name>
+    <description>Parent for athena artifacts</description>
+    <url>https://github.com/septbits/athena</url>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <compile.version>8</compile.version>
+        <!-- versions -->
+        <junit.version>4.13.2</junit.version>
+        <lombok.version>1.18.24</lombok.version>
+    </properties>
+
+    <modules>
+        <module>athena-core</module>
+    </modules>
+
+    <issueManagement>
+        <system>GitHub Issues</system>
+        <url>https://github.com/septbits/athena/issues</url>
+    </issueManagement>
+    <inceptionYear>2022</inceptionYear>
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <scm>
+        <connection>scm:git:https://github.com/septbits/athena.git</connection>
+        <developerConnection>scm:git:git@github.com:septbits/athena.git</developerConnection>
+        <url>https://github.com/septbits/athena</url>
+    </scm>
+    <developers>
+        <developer>
+            <id>holten</id>
+            <name>Holten KO</name>
+            <email>holten.ko@foxmail.com</email>
+            <organization>SeptBits</organization>
+            <organizationUrl>https://www.septbits.com</organizationUrl>
+            <roles>
+                <role>owner</role>
+                <role>developer</role>
+            </roles>
+            <timezone>+8</timezone>
+        </developer>
+    </developers>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>${compile.version}</source>
+                    <target>${compile.version}</target>
+                    <compilerArgument>-Xlint:unchecked</compilerArgument>
+                </configuration>
+            </plugin>
+            <!-- Javadoc -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.1.1</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
